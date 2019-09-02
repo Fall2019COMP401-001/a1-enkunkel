@@ -9,40 +9,44 @@ public class A1Adept {
 		
 		Scanner scan = new Scanner(System.in);
 
-		int numItems = scan.nextInt(); //Scanning in # items
-		HashMap<String, Double> items = new HashMap<String, Double>(); //To store the item names + prices
+		int numItems = scan.nextInt(); 
+		HashMap<String, Double> items = new HashMap<String, Double>(); //Hashmap to store names and prices of items
 		
-		for(int i = 0; i < numItems; i++) { //Going thru item price list, storing in hashmap
+		//Going through items, adding to hashmap reference
+		for(int i = 0; i < numItems; i++) { 
 			String tempItemName = scan.next();
 			double tempItemPrice = scan.nextDouble();
 			items.put(tempItemName , tempItemPrice);
 		}
 		
-		int numPeople = scan.nextInt(); //Scanning in # customers
+		int numPeople = scan.nextInt();
 		
-		//Initalizing variables to keep track of largest and smallest buys
+		//Initializing variables to store superlative names and costs
 		String biggestBuyer = "";
 		Double biggestTotal = 0.0;
 		
 		String smallestBuyer = "";
 		Double smallestTotal = 1000000000.0;
 		
-		Double cumulativeTotal = 0.0; //For later calculating avg.
+		Double cumulativeTotal = 0.0;
 		
-		for (int i = 0; i < numPeople; i++) { //Going thru customers
+		//Going through people
+		for (int i = 0; i < numPeople; i++) {
+			//Scanning in first/last name, conjoining and saving them to temp var
 			String tempFirstName = scan.next();
 			String tempLastName = scan.next();
-			String tempName = tempFirstName + " " +  tempLastName; //Joining first and last name as one str
+			String tempName = tempFirstName + " " +  tempLastName;
 			
-			int itemsPurchased = scan.nextInt(); //# type items purchased by each individual
+			int itemsPurchased = scan.nextInt();
 				
-			double personalTotal = 0.0;  //Person's spend total
+			double personalTotal = 0.0; //Initializing personal total cost
 			
-			for (int t = 0; t < itemsPurchased; t++) {//Going through type items bought by person
+			for (int t = 0; t < itemsPurchased; t++) {//Going thru items each person bought
 				int numberItemPurchased = scan.nextInt();
-				personalTotal = personalTotal + (items.get(scan.next()) * numberItemPurchased ); //Calculating money spent by retrieving stored price		
+				//Referencing hashmap for prices, adding item costs to persons total
+				personalTotal = personalTotal + (items.get(scan.next()) * numberItemPurchased );			
 			}
-			//Conditionals to know whether to override current superlative 
+			//Conditionals determining if superlatives need to be replaced
 			if (personalTotal > biggestTotal) {
 				biggestBuyer = tempName;
 				biggestTotal = personalTotal;
@@ -52,8 +56,8 @@ public class A1Adept {
 				smallestBuyer = tempName;
 				smallestTotal = personalTotal;
 			}
-			
-			cumulativeTotal += cumulativeTotal ;	//Adding each persons final $ spent to group amount				
+			//Adding personal totals together 
+			cumulativeTotal = cumulativeTotal + personalTotal;					
 		}
 		
 		scan.close();
