@@ -24,7 +24,7 @@ public class A1Adept {
 		String biggestBuyer = "";
 		Double biggestTotal = 0.0;
 		
-		String smallestBuyer = " ";
+		String smallestBuyer = "";
 		Double smallestTotal = 1000000000.0;
 		
 		Double cumulativeTotal = 0.0;
