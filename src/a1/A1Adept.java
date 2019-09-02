@@ -19,12 +19,12 @@ public class A1Adept {
 		}
 		
 		int numPeople = scan.nextInt();
-		//System.out.print("FUUUUUUUUUUUCK"); CHECKED
+		
 		
 		String biggestBuyer = "";
 		Double biggestTotal = 0.0;
 		
-		String smallestBuyer = "";
+		String smallestBuyer = " ";
 		Double smallestTotal = 1000000000.0;
 		
 		Double cumulativeTotal = 0.0;
@@ -61,7 +61,6 @@ public class A1Adept {
 		System.out.print("Biggest: " + biggestBuyer + " " + "(" + String.format("%.2f", biggestTotal) + ")" + "\n");
 		System.out.print("Smallest: " + smallestBuyer + " " + "(" + String.format("%.2f", smallestTotal) + ")" + "\n");
 		System.out.print("Average: " + String.format("%.2f", (cumulativeTotal / numPeople)));
-	
-		//String.format("%.2f", x)
+
 	}
 }
