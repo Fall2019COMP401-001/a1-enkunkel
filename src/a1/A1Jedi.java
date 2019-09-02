@@ -2,6 +2,7 @@ package a1;
 
 import java.util.Scanner;
 import java.util.List;
+import java.util.ArrayList;
 
 public class A1Jedi {
 
@@ -27,6 +28,8 @@ public class A1Jedi {
 			
 			int numPersonPurchases = scan.nextInt();
 			
+			List<String> itemsPurchased = new ArrayList<String>();
+			
 			for (int t = 0; t < numPersonPurchases ; t++) {
 				int numPurchased = scan.nextInt();
 				String itemPurchased = scan.next();
@@ -36,7 +39,13 @@ public class A1Jedi {
 				int indexMatch = java.util.Arrays.asList(items).indexOf(itemPurchased);
 				//System.out.print(indexMatch +"\n");
 				
-				purchases [0][indexMatch] ++; 
+				if (itemsPurchased.contains(itemPurchased)) {
+					
+				}
+				else {
+					itemsPurchased.add(itemPurchased);
+					purchases [0][indexMatch] ++;
+				}
 				purchases [1][indexMatch] += numPurchased;	
 			}	
 		}
